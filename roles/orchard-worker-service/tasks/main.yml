@@ -1,0 +1,31 @@
+- name: install Orchard
+  homebrew:
+    name: orchard
+    state: upgraded
+
+- name: install Tart
+  homebrew:
+    name: tart
+    state: upgraded
+
+- name: install Softnet
+  homebrew:
+    name: softnet
+    state: upgraded
+
+- name: ensure Softnet binary has a SUID-bit set
+  file:
+    path: /opt/homebrew/bin/softnet
+    owner: root
+    mode: 04755
+  become: yes
+
+- name: create Orchard Worker launchd unit
+  template:
+    src: org.cirruslabs.orchard.worker.plist.j2
+    dest: /Library/LaunchDaemons/org.cirruslabs.orchard.worker.plist
+  become: yes
+
+- name: install and enable Orchard Worker launchd unit
+  command: launchctl load -w /Library/LaunchDaemons/org.cirruslabs.orchard.worker.plist
+  become: yes
