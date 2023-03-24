@@ -1,16 +1,16 @@
 - name: install Orchard
   homebrew:
-    name: orchard
+    name: cirruslabs/cli/orchard
     state: upgraded
 
 - name: install Tart
   homebrew:
-    name: tart
+    name: cirruslabs/cli/tart
     state: upgraded
 
 - name: install Softnet
   homebrew:
-    name: softnet
+    name: cirruslabs/cli/softnet
     state: upgraded
 
 - name: ensure Softnet binary has a SUID-bit set
