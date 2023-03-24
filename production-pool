@@ -2,7 +2,7 @@ macs:
   children:
     workers:
       hosts:
-        0.0.0.0: # populate me
+        worker-1.hosts.internal: # populate me
   vars:
     ansible_user: admin
     orchard_worker_user: administrator
