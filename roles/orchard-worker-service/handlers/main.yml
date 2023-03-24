@@ -1,0 +1,5 @@
+- name: restart orchard worker
+  community.general.launchd:
+    name: org.cirruslabs.orchard.worker
+    state: restarted
+  become: yes

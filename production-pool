@@ -1,0 +1,10 @@
+macs:
+  children:
+    workers:
+      hosts:
+        worker-1.hosts.internal: # populate me
+  vars:
+    ansible_user: admin
+    orchard_worker_user: administrator # change if nessesary
+    orchard_worker_controller_url: # populate me
+    orchard_worker_bootstrap_token: # populate me

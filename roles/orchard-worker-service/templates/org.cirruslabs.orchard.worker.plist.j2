@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>org.cirruslabs.orchard.worker</string>
+    <key>UserName</key>
+    <string>{{ orchard_worker_user }}</string>
+    <key>Program</key>
+    <string>{{ orchard_worker_binary_path }}</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>{{ orchard_worker_binary_path }}</string>
+      <string>worker</string>
+      <string>run</string>
+      <string>--bootstrap-token</string>
+      <string>{{ orchard_worker_bootstrap_token }}</string>
+      <string>{{ orchard_worker_controller_url }}</string>
+    </array>
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>PATH</key>
+      <string>/bin:/usr/bin:/usr/local/bin:/opt/homebrew/bin</string>
+    </dict>
+    <key>WorkingDirectory</key>
+    <string>/var/empty</string>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>{{ orchard_worker_log_path_launchd }}</string>
+    <key>StandardErrorPath</key>
+    <string>{{ orchard_worker_log_path_launchd }}</string>
+  </dict>
+</plist>

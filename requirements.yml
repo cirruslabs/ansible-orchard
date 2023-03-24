@@ -1,0 +1,4 @@
+collections:
+  - geerlingguy.mac
+roles:
+  - elliotweiser.osx-command-line-tools

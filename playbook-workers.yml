@@ -1,0 +1,21 @@
+- name: Command Line Tools
+  hosts: workers
+  roles:
+    - { role: elliotweiser.osx-command-line-tools }
+
+- name: Install Homebrew
+  hosts: workers
+  roles:
+    - geerlingguy.mac.homebrew
+
+- hosts: workers
+  tasks:
+    - name: Update and upgrade Homebrew packages
+      homebrew:
+        update_homebrew: true
+        upgrade_all: true
+
+- name: Orchard Worker Service
+  hosts: workers
+  roles:
+    - role: orchard-worker-service
