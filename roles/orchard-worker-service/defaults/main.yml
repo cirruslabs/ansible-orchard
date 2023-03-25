@@ -1,2 +1,3 @@
 orchard_worker_name: "{{ ansible_hostname }}"
 orchard_worker_binary_path: /opt/homebrew/bin/orchard
+orchard_worker_log_file_path: /tmp/orchard-worker.log
